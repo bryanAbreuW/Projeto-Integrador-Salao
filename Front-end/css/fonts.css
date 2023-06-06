@@ -1,0 +1,20 @@
+/* FORMATACAO GEAL DAS FONTES DO SISTEMA */
+body {
+    font-family: var(--ff-primary);
+    font-size: var(--fs-default);
+    color: var(--light-brown);
+}
+
+h1 {
+    font-family: var(--ff-secondary);
+    font-weight: 900;
+}
+
+a {
+    text-emphasis: none;
+    color: var(--golden-orange);
+}
+
+p {
+    font-size: var(--fs-2);
+}
