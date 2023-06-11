@@ -1,0 +1,26 @@
+/* FOOTER GERAL DO SITE */
+#footer-primary {
+    background-color: var(--bg-primary);
+    padding: 60px var(--pd-side) 10px var(--pd-side);
+}
+
+.footer-primary-item {
+    width: 30%;
+    margin: 10px;
+}
+
+#footer-primary p {
+    font-size: var(--fs-default);
+}
+
+#footer-primary a:link, a:visited {
+    color: var(--light-brown);
+    text-decoration: none;
+}
+
+#footer-primary a:hover {
+    color: var(--golden-orange);
+    background: var(--white);
+    text-decoration: none;
+}
+

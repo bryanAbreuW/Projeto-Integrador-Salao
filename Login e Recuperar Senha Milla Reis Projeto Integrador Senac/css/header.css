@@ -1,0 +1,44 @@
+/* HEADER GERAL DO SITE */
+
+
+#header-primary {
+    background-color: var(--bg-primary);
+    padding: 10px var(--pd-side) 10px var(--pd-side);
+}
+
+#header-logo img {
+    width: 30%;
+    height: 30%;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.menu a:link, a:visited {
+    color: var(--light-brown);
+    padding: 8px 12px;
+    margin: 0px 4px;
+}
+
+.menu a:hover {
+    color: var(--golden-orange);
+    background: var(--white);
+    text-decoration: none;
+    border-radius: var(--bdr-primary);
+}
+  
+.menu-item {
+    display: block;
+    text-decoration: none;
+}
+
+.menu-item-button {
+    border: 1.5px dashed var(--golden-orange);
+    border-radius: var(--bdr-primary);
+}
+

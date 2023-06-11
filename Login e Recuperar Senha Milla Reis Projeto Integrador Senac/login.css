@@ -1,0 +1,88 @@
+/* Header adicional */
+#header{
+    background-color: #ffe5d8;
+}
+
+
+
+/*main login*/
+#Entre_css{
+    margin-top: 100px;
+    position: relative;
+    left: 825px;
+    bottom: 40px;
+
+}
+
+
+
+
+#Usuário{
+    font-size: 25px;
+    margin-left: 630px;
+    position: relative;
+    bottom: 10px;
+    
+
+
+}
+
+#Usuário_input{
+    height: 30px;
+    width: 320px;
+
+    margin-left: 720px;
+    position: relative;
+    bottom: 58px;
+    
+    
+}
+
+
+#Senha{
+    font-size: 25px;
+    margin-left: 648px;
+    position: relative;
+    bottom: 30px;
+    right: 1px;
+}
+
+
+#Senha_input{
+    height: 30px;
+    width: 320px;
+
+    margin-left: 720px;
+    position: relative;
+    bottom: 78px;
+    
+
+}
+
+#Esqueceu_a_senha{
+
+    margin-left: 950px;
+
+
+}
+
+#entrar{
+    position: relative;
+    bottom: 70px;
+    left: 850px;
+}
+
+
+
+
+
+
+/*footer adicional*/
+
+#footer{
+    background-color: #ffe5d8;
+    position: relative;
+    top: 95px;
+}
+
+
