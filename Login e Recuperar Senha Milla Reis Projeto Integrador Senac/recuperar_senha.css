@@ -1,0 +1,22 @@
+/*header adicional*/
+#header{
+    background-color: #ffe5d8;
+}
+
+
+/*main recuperar senha*/
+#redefinir_senha{
+    margin-top: 100px;
+
+}
+
+
+#voltar_enviar{
+    margin-bottom: 200px;
+    margin-top: 20px;
+}
+
+/*footer adicional*/
+#footer{
+    background-color: #ffe5d8;
+}
