@@ -1,9 +1,12 @@
 <?php
 include_once("config.php");
-include_once("router/AlunoRouter.php");
+//include_once("router/AlunoRouter.php");
+include_once("router/ServicoRouter.php");
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
+
+$method = $_SERVER['REQUEST_METHOD'];
 
 if ($method == "OPTIONS") {
     header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
