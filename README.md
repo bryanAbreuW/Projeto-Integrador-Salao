@@ -1,4 +1,4 @@
-# Projeto-Integrador-Salao
+# Projeto-Integrador-Salão
 
 - Criar estrutura do banco de dados
 

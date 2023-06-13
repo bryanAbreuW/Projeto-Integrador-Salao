@@ -1,4 +1,6 @@
 /* HEADER GERAL DO SITE */
+
+
 #header-primary {
     background-color: var(--bg-primary);
     padding: 10px var(--pd-side) 10px var(--pd-side);
@@ -39,3 +41,4 @@
     border: 1.5px dashed var(--golden-orange);
     border-radius: var(--bdr-primary);
 }
+
