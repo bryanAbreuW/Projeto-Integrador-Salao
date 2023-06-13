@@ -2,7 +2,7 @@
 
 class DAO
 {
-    private $pdo;
+   // private $pdo;
 
     function connect()
     {
