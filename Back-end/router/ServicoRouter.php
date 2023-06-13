@@ -4,17 +4,17 @@ include_once("router.php");
 
 try {
     router("post", "servico", function () {
-        $servicoController = new ServicoController();
+        $servicoController = new ServicoController;
         $servicoController->postServico();
     });
 
     router("get", "servico", function () {
-        $servicoController = new ServicoController();
+        $servicoController = new ServicoController;
         $servicoController->getServico();
     });
 
     router("put", "servico", function () {
-        $servicoController = new ServicoController();
+        $servicoController = new ServicoController;
         $servicoController->getServico();
     });
 
