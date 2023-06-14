@@ -1,19 +1,19 @@
 <?php
 include_once("DAO.php");
 
-class AlunoService
+class ClienteService
 {
-    function add(Aluno $aluno)
+    function add(Cliente $cliente)
     {
         try {
-            $sql = "INSERT INTO aluno (nome, email, senha, data_nasc) VALUES (:nome, :email, MD5(:senha), :data_nasc)";
+            $sql = "INSERT INTO clientes (nome, email, telefone, senha, data_nascimento, observacao) VALUES (:nome, :email, telefone, MD5(:senha), :data_nascimento, :observacao)";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql); //Iniciar o preparativo para o envio dos dados ao banco;
-            $stman->bindParam(":nome", $aluno->nome); //Troca dos paramentos
-            $stman->bindParam(":email", $aluno->email);
-            $stman->bindParam(":senha", $aluno->senha);
-            $stman->bindParam(":data_nasc", $aluno->data_nasc);
+            $stman->bindParam(":nome", $cliente->nome); //Troca dos paramentos
+            $stman->bindParam(":email", $cliente->email);
+            $stman->bindParam(":telefone", $cliente->telefone);
+            $stman->bindParam(":senha", $cliente->senha);
             $stman->execute(); //Gravar os dados no banco de dados
         } catch (Exception $e) {
             throw new Exception("Erro ao cadastrar!" . $e->getMessage());
@@ -23,7 +23,7 @@ class AlunoService
     function getAll()
     {
         try {
-            $sql = "SELECT matricula, nome, email, data_nasc FROM aluno WHERE ativo = true";
+            $sql = "SELECT id, nome, email, telefone FROM clientes WHERE ativo = true";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
@@ -35,14 +35,14 @@ class AlunoService
         }
     }
 
-    function get(int $matricula)
+    function get(int $id)
     {
         try {
-            $sql = "SELECT matricula, nome, email, data_nasc FROM aluno WHERE ativo = true AND matricula = :matricula";
+            $sql = "SELECT id, nome, email, telefone, data_nascimento, observacao FROM cliente WHERE ativo = true AND id = :id";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
-            $stman->bindParam(":matricula", $matricula);
+            $stman->bindParam(":id", $id);
             $stman->execute();
             $result = $stman->fetchAll();
             return $result;
@@ -51,16 +51,16 @@ class AlunoService
         }
     }
 
-    function update(Aluno $aluno)
+    function update(Cliente $cliente)
     {
         try {
-            $sql = "UPDATE aluno SET nome = :nome, email = :email WHERE matricula = :matricula";
+            $sql = "UPDATE cliente SET nome = :nome, email = :email WHERE id = :id";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
-            $stman->bindParam(":nome", $aluno->nome);
-            $stman->bindParam(":email", $aluno->email);
-            $stman->bindParam(":matricula", $aluno->matricula);
+            $stman->bindParam(":nome", $cliente->nome);
+            $stman->bindParam(":email", $cliente->email);
+            $stman->bindParam(":id", $cliente->id);
             $stman->execute();
         } catch (Exception $e) {
             throw new Exception("Erro ao atualizar!" . $e->getMessage());
@@ -70,12 +70,12 @@ class AlunoService
     function delete(int $matricula)
     {
         try {
-            //$sql = "DELETE FROM aluno WHERE matricula = :matricula";
-            $sql = "UPDATE aluno SET ativo = false WHERE matricula = :matricula";
+            //$sql = "DELETE FROM cliente WHERE id = :id";
+            $sql = "UPDATE cliente SET ativo = false WHERE id = :id";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
-            $stman->bindParam(":matricula", $matricula);
+            $stman->bindParam(":id", $id);
             $stman->execute();
         } catch (PDOException $e) {
             throw new Exception("Erro ao remover os dados!" . $e->getMessage());
@@ -88,7 +88,7 @@ class AlunoService
     function login(string $email, string $senha)
     {
         try {
-            $sql = "SELECT matricula, nome, email, data_nasc FROM aluno WHERE ativo = true AND email = :email AND senha = MD5(:senha)";
+            $sql = "SELECT id, nome, email, telefone, data_nascimento FROM cliente WHERE ativo = true AND email = :email AND senha = MD5(:senha)";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);

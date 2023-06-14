@@ -1,12 +1,14 @@
 <?php
 
-class Aluno
+class Cliente
 {
-    public $matricula;
+    public $id;
     public $nome;
     public $email;
+    public $telefone;
     public $senha;
     public $data_nasc;
+    public $observação;
 
     function valid()
     {
@@ -23,10 +25,13 @@ class Aluno
 
     function mount(Object $dados)
     {
-        $this->matricula = $dados->matricula;
+        $this->id = $dados->id;
         $this->nome = $dados->nome;
         $this->email = $dados->email;
+        $this->telefone = $dados->telefone;
         $this->senha = $dados->senha;
         $this->data_nasc = $dados->data_nasc;
+        $this->observação = $dados->observação;
+
     }
 }

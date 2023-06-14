@@ -1,11 +1,11 @@
 <?php
-include_once("services/AlunoService.php");
-include_once("model/Aluno.php");
+include_once("services/ClienteService.php");
+include_once("model/Cliente.php");
 include_once("services/jwt.php");
 
-class AlunoController
+class ClienteController
 {
-    function postAluno()
+    function postCliente()
     {
         try {
             //file_get_contents: Pega dados do body contidos no request
@@ -14,18 +14,24 @@ class AlunoController
             //json_deconde: converte texto(json) em objeto
             $dadosRequest = json_decode($body);
 
-            $aluno = new Aluno();
-            $aluno->mount($dadosRequest);
+            $cliente = new Cliente();
+            $cliente->nome = $dadosRequest->nome;
+            $cliente->telefone=$dadosRequest->telefone;
+            $cliente->email = $dadosRequest->email;
+            $cliente->senha = $dadosRequest->senha;
+            $cliente->mount($dadosRequest);
 
-            //Valida o aluno no sistema
-            $aluno->valid();
+            //Valida o cliente no sistema
+            $cliente->valid();
 
-            $alunoService = new AlunoService();
-            if ($aluno->matricula != null && $aluno->matricula != "" && $aluno->matricula != 0) {
-                $alunoService->update($aluno);
+            $clienteService= new ClienteService ();
+            $clienteService->add($cliente);
+            echo json_encode(array("message" => "Cadastrado!"));
+            if ($cliente->id != null && $cliente->id != "" && $cliente->id != 0) {
+                $clienteService->update($cliente);
                 echo json_encode(array("message" => "Atualizado!"));
             } else {
-                $alunoService->add($aluno);
+                $clienteService->add($cliente);
                 echo json_encode(array("message" => "Cadastrado!"));
             }
         } catch (Exception $e) {
@@ -34,16 +40,16 @@ class AlunoController
         }
     }
 
-    function getAluno()
+    function getCliente()
     {
         try {
             $body = file_get_contents('php://input');
             $dadosRequest = json_decode($body);
-            $alunoService = new AlunoService();
-            if (isset($dadosRequest->matricula)) {
-                $result = $alunoService->get($dadosRequest->matricula);
+            $clienteService = new ClienteService();
+            if (isset($dadosRequest->id)) {
+                $result = $clienteService->get($dadosRequest->id);
             } else {
-                $result = $alunoService->getAll();
+                $result = $clienteService->getAll();
             }
             echo json_encode(array("message" => "resultado da busca de dados", "dados" => $result));
         } catch (Exception $e) {
@@ -52,23 +58,24 @@ class AlunoController
         }
     }
 
-    function putAluno()
+    function putCliente()
     {
         try {
+            echo "Update Cliente\n";
             //file_get_contents: Pega dados do body contidos no request
             $body = file_get_contents('php://input');
 
             //json_deconde: converte texto(json) em objeto
             $dadosRequest = json_decode($body);
 
-            $aluno = new Aluno();
-            $aluno->mount($dadosRequest);
+            $cliente = new Cliente();
+            $cliente->mount($dadosRequest);
 
-            //Valida o aluno no sistema
-            $aluno->valid();
+            //Valida o cliente no sistema
+            $cliente->valid();
 
-            $alunoService = new AlunoService();
-            $alunoService->update($aluno);
+            $clienteService = new ClienteService();
+            $clienteService->update($cliente);
             echo json_encode(array("message" => "Atualizado!"));
         } catch (Exception $e) {
             http_response_code(500);
@@ -76,17 +83,18 @@ class AlunoController
         }
     }
 
-    function deleteAluno()
+    function deleteCliente()
     {
         try {
+            echo "Delete Cliente\n";
             $body = file_get_contents('php://input');
             $dadosRequest = json_decode($body);
-            if (!$dadosRequest->matricula) {
+            if (!$dadosRequest->id) {
                 throw new Exception("Erros ao buscar parâmetros para remover!");
             }
 
-            $alunoService = new AlunoService();
-            $alunoService->delete($dadosRequest->matricula);
+            $clienteService = new ClienteService();
+            $clienteService->delete($dadosRequest->id);
             echo json_encode(array("message" => "Dados removidos!"));
         } catch (Exception $e) {
             http_response_code(500);
@@ -94,7 +102,7 @@ class AlunoController
         }
     }
 
-    function loginAluno()
+    function loginCliente()
     {
         try {
             $body = file_get_contents('php://input');
@@ -102,8 +110,8 @@ class AlunoController
             if (!$dadosRequest->email || !$dadosRequest->senha) {
                 throw new Exception("Erros ao buscar parâmetros!");
             }
-            $alunoService = new AlunoService();
-            $result = $alunoService->login($dadosRequest->email, $dadosRequest->senha);
+            $clienteService = new ClienteService();
+            $result = $clienteService->login($dadosRequest->email, $dadosRequest->senha);
             if (sizeof($result) == 0) throw new Exception("Erros ao buscar parâmetros!");
             $token = generateJWT($result[0]);
             //session_start();
