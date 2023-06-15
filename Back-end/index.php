@@ -1,6 +1,5 @@
 <?php
 include_once("config.php");
-include_once("router/AlunoRouter.php");
 include_once("router/ServicoRouter.php");
 include_once("router/ClienteRouter.php");
 

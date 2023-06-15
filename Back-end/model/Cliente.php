@@ -7,8 +7,8 @@ class Cliente
     public $email;
     public $telefone;
     public $senha;
-    public $data_nasc;
-    public $observação;
+    public $data_nascimento;
+    public $observacao;
 
     function valid()
     {
@@ -30,8 +30,8 @@ class Cliente
         $this->email = $dados->email;
         $this->telefone = $dados->telefone;
         $this->senha = $dados->senha;
-        $this->data_nasc = $dados->data_nasc;
-        $this->observação = $dados->observação;
+        $this->data_nascimento = $dados->data_nascimento;
+        $this->observacao = $dados->observacao;
 
     }
 }

@@ -32,6 +32,11 @@ CREATE TABLE servicos (
   preco DECIMAL(10, 2),
   peso INT
 );
+/*
+  "nome": "teste",
+  "descricao": "teste",
+  "preco": 00.00
+*/
 
 
 /* Criação da tabela agendamentos */

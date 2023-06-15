@@ -6,7 +6,7 @@ class ClienteService
     function add(Cliente $cliente)
     {
         try {
-            $sql = "INSERT INTO clientes (nome, email, telefone, senha, data_nascimento, observacao) VALUES (:nome, :email, telefone, MD5(:senha), :data_nascimento, :observacao)";
+            $sql = "INSERT INTO clientes (nome, email, telefone, senha, data_nascimento, observacao) VALUES (:nome, :email, :telefone, MD5(:senha), :data_nascimento, :observacao)";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql); //Iniciar o preparativo para o envio dos dados ao banco;
@@ -14,6 +14,8 @@ class ClienteService
             $stman->bindParam(":email", $cliente->email);
             $stman->bindParam(":telefone", $cliente->telefone);
             $stman->bindParam(":senha", $cliente->senha);
+            $stman->bindParam(":data_nascimento", $cliente->data_nascimento);
+            $stman->bindParam(":observacao", $cliente->observacao);            
             $stman->execute(); //Gravar os dados no banco de dados
         } catch (Exception $e) {
             throw new Exception("Erro ao cadastrar!" . $e->getMessage());
