@@ -1,0 +1,23 @@
+/* MAIN */
+main {
+    flex: 1;
+    padding: 50px var(--pd-side) 70px var(--pd-side);
+}
+
+section {
+    padding-bottom: 20px;
+}
+
+.breadcrumb a:link, a:visited {
+    color: var(--light-brown);
+    padding: 8px 12px;
+    margin: 0px 4px;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--golden-orange);
+    background: var(--white);
+    text-decoration: none;
+    border-radius: var(--bdr-primary);
+}

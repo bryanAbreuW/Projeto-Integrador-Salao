@@ -12,17 +12,6 @@ main {
     flex: 1;
 }
 
-/* CONFIGURACAO PADRAO DE BOTOES */
-.standard-button {
-    padding: 8px 70px;
-    margin: 16px 0px 10px 0px;
-    border-radius: var(--bdr-primary);
-    background-color: var(--light-brown);
-    border: none;
-    color: var(--white);
-    font-size: va1(--fs-1);
-}
-
 /* CONFIGURACAO GERAL PARA TODAS AS SECOES */
 section {
     padding-right: 25px;

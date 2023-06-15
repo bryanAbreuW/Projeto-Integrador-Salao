@@ -4,3 +4,14 @@
     flex-direction: column;
     min-height: 100vh;
 }
+
+/* CONFIGURACAO PADRAO DE BOTOES */
+.standard-button {
+    padding: 8px 70px;
+    margin: 16px 0px 10px 0px;
+    border-radius: var(--bdr-primary);
+    background-color: var(--light-brown);
+    border: none;
+    color: var(--white);
+    font-size: va1(--fs-1);
+}

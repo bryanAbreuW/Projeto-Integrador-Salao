@@ -28,6 +28,26 @@ export function header(element) {
     `
 }
 
+export function secondaryHeader(element) {
+    document.getElementById("secondary-header-page").innerHTML =
+        `  
+    <div>
+        <!-- Header - INICIO -->
+        <div id="header-secondary">
+            <div class="d-flex justify-content-between">
+                <div id="header-logo" class="align-self-center">
+                <a href="./index.html">    
+                    <img src="./img/logo_milla_reis_studio-539x441.png"
+                        alt="Logotipo do site Milla Reis Studio">
+                </a>
+                </div>
+            </div>
+        </div>
+        <!-- Header - FIM -->
+    </div>
+    `
+}
+
 export function footer() {
     document.getElementById("footer-page").innerHTML =
         `
