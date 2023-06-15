@@ -14,15 +14,29 @@ CREATE TABLE clientes (
   ativo Boolean default 1,
   validado Boolean default 0
 );
+/*Teste para clientes
+  "nome": "teste",
+  "email": "teste@gmail.com",
+  "senha": 123456,
+  "telefone": 999999999,
+  "data_nascimento":2023-05-20,
+  "observacao": "nada"
 
+*/
 
 /* Criação da tabela serviços */
 CREATE TABLE servicos (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100),
   descricao VARCHAR(255),
-  preco DECIMAL(10, 2) 
+  preco DECIMAL(10, 2),
+  peso INT
 );
+/*
+  "nome": "teste",
+  "descricao": "teste",
+  "preco": 00.00
+*/
 
 
 /* Criação da tabela agendamentos */

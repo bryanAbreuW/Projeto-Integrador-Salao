@@ -1,16 +1,17 @@
 <?php
 include_once("config.php");
-//include_once("router/AlunoRouter.php");
 include_once("router/ServicoRouter.php");
+include_once("router/ClienteRouter.php");
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-$method = $_SERVER['REQUEST_METHOD'];
 
-if ($method == "OPTIONS") {
+
+//if ($method == "OPTIONS") {
     header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
     header("Access-Control-Allow-Headers: *");
     header("Access-Control-Max-Age: 3600"); //1hora == 3600 seg;
     header("Access-Control-Allow-Credentials: true");
-}
+//}
+ 

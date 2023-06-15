@@ -6,7 +6,7 @@ class ServicoService
     function add(Servico $servico)
     {
         try {
-            $sql = "INSERT INTO servico (nome, descricao, preco) VALUES (:nome, :descricao, :preco)";
+            $sql = "INSERT INTO servicos (nome, descricao, preco) VALUES (:nome, :descricao, :preco)";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql); //Iniciar o preparativo para o envio dos dados ao banco;
@@ -22,7 +22,7 @@ class ServicoService
     function getAll()
     {
         try {
-            $sql = "SELECT id, nome, descricao, preco FROM servico WHERE ativo = true";
+            $sql = "SELECT id, nome, descricao, preco FROM servicos WHERE ativo = true";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
@@ -37,7 +37,7 @@ class ServicoService
     function get(int $id)
     {
         try {
-            $sql = "SELECT id, nome, descricao, preco FROM servico WHERE ativo = true AND id = :id";
+            $sql = "SELECT id, nome, descricao, preco FROM servicos WHERE ativo = true AND id = :id";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
@@ -53,7 +53,7 @@ class ServicoService
     function update(Servico $servico)
     {
         try {
-            $sql = "UPDATE servico SET nome = :nome, descricao = :descricao, preco = :preco WHERE id = :id";
+            $sql = "UPDATE servicos SET nome = :nome, descricao = :descricao, preco = :preco WHERE id = :id";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
@@ -71,7 +71,7 @@ class ServicoService
     {
         try {
             //$sql = "DELETE FROM aluno WHERE matricula = :matricula";
-            $sql = "UPDATE servico SET ativo = false WHERE id = :id";
+            $sql = "UPDATE servicos SET ativo = false WHERE id = :id";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
