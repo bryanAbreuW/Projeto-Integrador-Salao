@@ -1,0 +1,17 @@
+/* quem-somos */
+
+.quem-somos .section-secondary {
+    display: flex;
+    flex-direction: column;
+}
+
+.quem-somos div {
+    padding: 30px;
+    text-align: center;
+}
+
+@media screen and (min-width: 900px) {
+    .quem-somos .section-secondary {
+        flex-direction: row;
+    }
+}
