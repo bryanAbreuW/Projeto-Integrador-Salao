@@ -28,6 +28,16 @@ section {
     padding: 20px;
 }
 
+#section-01 button {
+    padding: 8px 70px;
+    margin: 16px 0px 10px 0px;
+    border-radius: var(--bdr-primary);
+    background-color: var(--light-brown);
+    border: none;
+    color: var(--white);
+    font-size: va1(--fs-1);
+}
+
 /* SECAO 02 - SAUDACOES */
 #section-02 {
     padding: 100px var(--pd-side) 70px var(--pd-side);
@@ -41,12 +51,6 @@ section {
 /* SECAO 03 - NOSSOS SERVICOS */
 #section-03 {
     padding: 100px var(--pd-side) 100px var(--pd-side);
-    text-align: center;
-}
-
-#section-03 h2 {
-    padding: 20px;
-    margin-bottom: 10px;
 }
 
 /* SECAO 04 - CALL TO ACTION */
@@ -55,56 +59,36 @@ section {
     text-align: center;
 }
 
-#section-04 h2 {
+#section-04 p {
     padding: 20px;
-    margin-bottom: 10px;
 }
 
 #section-04 input {
-    width: 50%;
+    width: 40%;
     text-align: center;
-    margin: auto;
-    border: none;
+}
+
+#section-04 button {
+    padding: 8px 70px;
+    margin: 16px 0px 10px 0px;
     border-radius: var(--bdr-primary);
+    background-color: var(--light-brown);
+    border: none;
+    color: var(--white);
+    font-size: va1(--fs-1);
 }
 
 /* SECAO 05 - GALERIA */
 #section-05 {
     padding: 100px var(--pd-side) 100px var(--pd-side);
-    text-align: center;
-}
-
-#section-05 h2 {
-    margin-bottom: 30px;
-}
-
-.carousel-item img {
-    height: 100%;
-    width: 100%;
 }
 
 /* SECAO 06 - ONDE ESTAMOS */
 #section-06 {
-    padding: 100px var(--pd-side) 75px var(--pd-side);
-    text-align: center;
+    padding: 115px var(--pd-side) 75px var(--pd-side);
 }
 
-#section-06 h2 {
-    margin-bottom: 30px;
+#section-07 {
+    text-align: left;
 }
 
-#section-06 h5 {
-    margin-top: 30px;
-}
-
-#section-06-map {
-    width: 70%
-}
-
-#section-06-complement {
-    width: 30%;
-}
-
-#section-06-social-media {
-    margin-top: 14%;
-}
