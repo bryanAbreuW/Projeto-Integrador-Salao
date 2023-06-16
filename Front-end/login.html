@@ -24,6 +24,11 @@
     <link rel="stylesheet" href="./css/login.css">
 
     <title>Milla Reis Studio</title>
+
+    <!-- <script src="./js/controller/clienteController.js" defer></script>
+    <script src="./js/services/clienteService.js" defer></script> -->
+    <script src="./js/env.js" defer></script>
+    <script src="./js/cliente.js" defer></script>
 </head>
 
 
@@ -49,21 +54,25 @@
         <!-- Header - FIM -->
     </header>
 
-
-    <main>
-        <div>
-            <h1 id="Entre_css">Entre</h1>
-
-            <div id="Login_interface">
-                <p id="Usuário">Usuário:</p> <input id="Usuário_input" type="text">
-                <p id="Senha">Senha:</p> <input id="Senha_input" type="text">
+    <main class="page-login">
+        <div class="page-login-content">
+            <h1>Entre</h1>
+            <div>
+                <div>
+                    <label>Usuário:</label>
+                    <input id="usuario-input" type="email">
+                </div>
+                <div>
+                    <label>Senha:</label>
+                    <input id="senha-input" type="password">
+                </div>
             </div>
-
-            <a id="Esqueceu_a_senha" href="./recuperar_senha.html">Esqueceu a Senha?</a>
-
-            <br>
-
-            <button id="entrar"><a href="./index.html">Entrar</a> </button>
+            <div class="esqueceu-senha">
+                <a href="./recuperar-senha.html">
+                    Esqueceu a Senha?
+                </a>
+            </div>
+            <button type="button" onclick="entrar()">Entrar</button>
         </div>
     </main>
 
@@ -164,7 +173,6 @@
         </div>
         <!-- Footer - FIM -->
     </footer>
-
 
 </body>
 
