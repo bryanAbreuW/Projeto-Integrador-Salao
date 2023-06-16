@@ -1,4 +1,7 @@
 /* quem-somos */
+#section-07 {
+    text-align: left;
+}
 
 .quem-somos .section-secondary {
     display: flex;

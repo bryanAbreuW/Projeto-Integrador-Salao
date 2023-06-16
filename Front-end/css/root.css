@@ -31,7 +31,8 @@
     --fs-5: 2.143em;
 
     /* ALINHAMENTOS */
-    --pd-side: 180px;
+    --pd-side: 12%;
+    --pd-top-bottom: 6%;
 
     /* BOTOES */
     --bdr-primary: 5px;

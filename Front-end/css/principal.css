@@ -1,0 +1,33 @@
+/* GERAL */
+.section-primary {
+    background-color: var(--bg-primary);
+}
+
+.section-secondary {
+    background-color: var(--bg-secundary);
+}
+
+/* CONFIGURACAO GERAL PARA TODAS AS SECOES */
+section {
+    text-align: center;
+    padding: var(--pd-top-bottom) var(--pd-side);
+}
+
+/* SECAO 01 - CAPA */
+#section-01 {
+    padding: 12% var(--pd-side);
+}
+
+#section-01 p {
+    padding: 0.8%;
+}
+
+/* SECAO 04 - CALL TO ACTION */
+#section-04-div-input {
+    margin: auto;
+    width: 40%;
+}
+
+#section-04 input {
+    text-align: center;
+}

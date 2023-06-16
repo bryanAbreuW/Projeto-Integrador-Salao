@@ -1,12 +1,12 @@
 /* FOOTER GERAL DO SITE */
 #footer-primary {
     background-color: var(--bg-primary);
-    padding: 60px var(--pd-side) 10px var(--pd-side);
+    padding: 3% var(--pd-side) 0.10% var(--pd-side);
 }
 
 .footer-primary-item {
     width: 30%;
-    margin: 10px;
+    margin: 2%;
 }
 
 #footer-primary p {

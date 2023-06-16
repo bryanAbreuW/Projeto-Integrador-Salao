@@ -25,11 +25,17 @@
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/principal.css">
 
     <script>
-        function abrirAgendamento() {
+        function abrirAgendamentoCadastro() {
             window.open("./agendamento-cadastro.html", "_self");
+        }
+    </script>
+
+    <script>
+        function abrirClienteCadastro() {
+            window.open("./cliente-cadastro.html", "_self");
         }
     </script>
 
@@ -46,7 +52,7 @@
             <div id="section-01">
                 <h1>Realce sua Beleza e Singularidade</h1>
                 <p>Permita-se ser e sentir o melhor de si mesma!</p>
-                <button class="standard-button" onclick="abrirAgendamento()">Agende uma visita</button>
+                <button class="standard-button section-button" onclick="abrirAgendamento()">Agende uma visita</button>
             </div>
         </section>
         <!-- Secao 01 - CAPA - Fim -->
@@ -65,7 +71,7 @@
         <!-- Secao 03 - NOSSOS SERVICOS - Inicio -->
         <section id="main-nossos-servicos" class="section-primary">
             <div id="section-03">
-                <h2>Nossos servi&ccedil;os</h2>
+                <h2 class="mb-4">Nossos servi&ccedil;os</h2>
                 <div class="row row-cols-2 g-3">
                     <div class="col">
                         <div class="card">
@@ -120,12 +126,11 @@
         <section class="section-secondary">
             <div id="section-04">
                 <h2>Quer informações mais detalhadas sobre valores, agenda e promoções?</h2>
-                <div>
+                <div id="section-04-div-input">
                     <input id="ask-for-contact" class="form-control mb-2" type="text" placeholder="e-mail ou Whatsapp">
-                    <small id="contact-help" class="form-text text-muted">Seu e-mail ou Whatsapp nunca será
-                        compartilhado com ninguém</small>
+                    <small id="contact-help" class="form-text text-muted">Seu e-mail ou Whatsapp nunca será compartilhado com ninguém</small>
                 </div>
-                <button class="standard-button">Entre em contado comigo!</button>
+                <button class="standard-button section-button mt-4" onclick="abrirClienteCadastro()">Entre em contado comigo!</button>
             </div>
         </section>
         <!-- Secao 04 - CALL TO ACTION - Fim -->
@@ -133,7 +138,7 @@
         <!-- Secao 05 - GALERIA - Inicio -->
         <section id="main-galeria" class="section-primary">
             <div id="section-05">
-                <h2>Galeria</h2>
+                <h2 class="mb-4">Galeria</h2>
                 <div id="galery-carousel" class="carousel slide" data-bs-ride="carousel">
                     <!-- Indicadores/dots - Inicio -->
                     <div class="carousel-indicators">
@@ -182,10 +187,10 @@
         <!-- Secao 06 - ONDE ESTAMOS - Inicio -->
         <section class="section-secondary">
             <div id="section-06">
-                <h2>Onde estamos</h2>
+                <h2 class="mb-4">Onde estamos</h2>
                 <div class="d-flex flex-row">
                     <!-- Mapa - Inicio -->
-                    <div id="section-06-map">
+                    <div id="section-06-map" class="m-auto">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1305950869664!2d-73.9777136!3d40.7591523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258feeba537d5%3A0x4309708327882ae!2s45%20Rockefeller%20Plaza%2C%20New%20York%2C%20NY%2010020%2C%20EUA!5e0!3m2!1spt-BR!2sbr!4v1686370320136!5m2!1spt-BR!2sbr"
                             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
@@ -193,7 +198,7 @@
                     </div>
                     <!-- Mapa - Fim -->
                     <!-- Demais informacoes - Inicio -->
-                    <div id="section-06-complement">
+                    <div id="section-06-complement" class="m-auto">
                         <!-- Endereco, Telefone e E-mail - Inicio -->
                         <div>
                             <div>
