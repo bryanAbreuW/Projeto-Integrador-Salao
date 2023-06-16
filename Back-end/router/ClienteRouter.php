@@ -18,13 +18,13 @@ try {
     });
 
     router("put", "cliente", function () {
-        isAuth();
+    //    isAuth();
         $clienteController = new ClienteController();
-        $clienteController->getCliente();
+        $clienteController->putCliente();
     });
 
     router("delete", "cliente", function () {
-        isAuth();
+    //    isAuth();
         $clienteController = new ClienteController();
         $clienteController->deleteCliente();
     });

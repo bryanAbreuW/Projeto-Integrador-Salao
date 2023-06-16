@@ -58,7 +58,7 @@ class ServicoService
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
             $stman->bindParam(":nome", $servico->nome);
-            $stman->bindParam(":email", $servico->descricao);
+            $stman->bindParam(":descricao", $servico->descricao);
             $stman->bindParam(":id", $servico->id);
             $stman->bindParam(":preco", $servico->preco);
             $stman->execute();

@@ -15,7 +15,7 @@ try {
 
     router("put", "servico", function () {
         $servicoController = new ServicoController;
-        $servicoController->getServico();
+        $servicoController->putServico();
     });
 
     router("delete", "servico", function () {
