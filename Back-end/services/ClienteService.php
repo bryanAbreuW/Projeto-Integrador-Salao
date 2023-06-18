@@ -40,7 +40,7 @@ class ClienteService
     function get(int $id)
     {
         try {
-            $sql = "SELECT id, nome, email, telefone, data_nascimento, observacao FROM cliente WHERE ativo = true AND id = :id";
+            $sql = "SELECT id, nome, email, telefone, data_nascimento, observacao FROM clientes WHERE ativo = true AND id = :id";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
@@ -56,7 +56,7 @@ class ClienteService
     function update(Cliente $cliente)
     {
         try {
-            $sql = "UPDATE cliente SET nome = :nome, email = :email WHERE id = :id";
+            $sql = "UPDATE clientes SET nome = :nome, email = :email WHERE id = :id";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
@@ -69,11 +69,11 @@ class ClienteService
         }
     }
 
-    function delete(int $matricula)
+    function delete(int $id)
     {
         try {
             //$sql = "DELETE FROM cliente WHERE id = :id";
-            $sql = "UPDATE cliente SET ativo = false WHERE id = :id";
+            $sql = "UPDATE clientes SET ativo = false WHERE id = :id";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);
@@ -90,7 +90,7 @@ class ClienteService
     function login(string $email, string $senha)
     {
         try {
-            $sql = "SELECT id, nome, email, telefone, data_nascimento FROM cliente WHERE ativo = true AND email = :email AND senha = MD5(:senha)";
+            $sql = "SELECT id, nome, email, telefone, data_nascimento FROM clientes WHERE ativo = true AND email = :email AND senha = MD5(:senha)";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);

@@ -20,7 +20,7 @@ function router($method, $endpoint, $callback)
     return ($validMethod && $validURI) ? $callback() : false;
 }
 
-function isAuth()
+/* function isAuth()
 {
     if (isset($_SERVER["HTTP_AUTHORIZATION"])) {
         $token = $_SERVER["HTTP_AUTHORIZATION"];
@@ -37,4 +37,4 @@ function isAuth()
     }
     http_response_code(401);
     throw new Exception("Não autorizado");
-}
+} */
