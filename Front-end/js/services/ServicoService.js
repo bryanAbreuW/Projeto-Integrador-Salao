@@ -1,7 +1,7 @@
 import { process } from "../env.js"
 export default class AlunoService {
     getToken() {
-        let token = JSON.parse(sessionStorage.getItem("token"));
+        let token = sessionStorage.getItem("token");
         if (token) {
             return "Bearer " + token;
         }
