@@ -15,18 +15,17 @@ class ClienteController
             $dadosRequest = json_decode($body);
 
             $cliente = new Cliente();
-            $cliente->nome = $dadosRequest->nome;
-            $cliente->telefone=$dadosRequest->telefone;
-            $cliente->email = $dadosRequest->email;
-            $cliente->senha = $dadosRequest->senha;
+
+
+
             $cliente->mount($dadosRequest);
 
             //Valida o cliente no sistema
             $cliente->valid();
 
-            $clienteService= new ClienteService ();
-            $clienteService->add($cliente);
-            echo json_encode(array("message" => "Cadastrado!"));
+            $clienteService = new ClienteService();
+
+
             if ($cliente->id != null && $cliente->id != "" && $cliente->id != 0) {
                 $clienteService->update($cliente);
                 echo json_encode(array("message" => "Atualizado!"));

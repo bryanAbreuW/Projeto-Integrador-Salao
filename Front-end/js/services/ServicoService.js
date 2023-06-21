@@ -14,7 +14,7 @@ export default class AlunoService {
             method: 'POST',
             body: JSON.stringify(aluno),
             headers: {
-                'Authorization': this.this.getToken(),
+                'Authorization': this.getToken(),
                 'Content-Type': 'application/json',
             },
             mode: "cors"

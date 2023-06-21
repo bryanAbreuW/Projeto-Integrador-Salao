@@ -11,20 +11,17 @@ try {
         $clienteController = new ClienteController();
         $clienteController->loginCliente();
     });
-
     router("get", "cliente", function () {
         $clienteController = new ClienteController();
         $clienteController->getCliente();
     });
-
     router("put", "cliente", function () {
-    //    isAuth();
+        roles(['auth']);
         $clienteController = new ClienteController();
         $clienteController->putCliente();
     });
-
     router("delete", "cliente", function () {
-    //    isAuth();
+        roles(['auth']);
         $clienteController = new ClienteController();
         $clienteController->deleteCliente();
     });

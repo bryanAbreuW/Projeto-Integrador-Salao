@@ -20,7 +20,7 @@ function router($method, $endpoint, $callback)
     return ($validMethod && $validURI) ? $callback() : false;
 }
 
-/* function isAuth()
+function isAuth()
 {
     if (isset($_SERVER["HTTP_AUTHORIZATION"])) {
         $token = $_SERVER["HTTP_AUTHORIZATION"];
@@ -30,11 +30,28 @@ function router($method, $endpoint, $callback)
             if (isset($user)) {
                 return $user;
             }
-            // if (isset($user->cargo) && $user->cargo == "Admin") {
-            //     return $user;
-            // }
         }
     }
     http_response_code(401);
     throw new Exception("Não autorizado");
-} */
+}
+
+function roles($listRoles)
+{
+    if (isset($_SERVER["HTTP_AUTHORIZATION"])) {
+        $token = $_SERVER["HTTP_AUTHORIZATION"];
+        if (validJWT($token)) {
+            $token =  str_replace(["Bearer", " "], "", $token);
+            $user = $_SESSION[$token];
+            if (isset($user)) {
+                for ($i = 0; $i < count($listRoles); $i++) {
+                    if ($listRoles[$i] == $user->roles || $listRoles[$i] == "auth") {
+                        return $user;
+                    }
+                }
+            }
+        }
+    }
+    http_response_code(401);
+    throw new Exception("Não autorizado");
+}

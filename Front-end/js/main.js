@@ -1,3 +1,3 @@
-import { footer, header } from "./templates/default.js";
+import { footer, header, sair } from "./templates/default.js";
 header();
 footer();

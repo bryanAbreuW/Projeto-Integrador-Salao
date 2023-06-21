@@ -15,7 +15,7 @@ class ClienteService
             $stman->bindParam(":telefone", $cliente->telefone);
             $stman->bindParam(":senha", $cliente->senha);
             $stman->bindParam(":data_nascimento", $cliente->data_nascimento);
-            $stman->bindParam(":observacao", $cliente->observacao);            
+            $stman->bindParam(":observacao", $cliente->observacao);
             $stman->execute(); //Gravar os dados no banco de dados
         } catch (Exception $e) {
             throw new Exception("Erro ao cadastrar!" . $e->getMessage());
@@ -90,7 +90,7 @@ class ClienteService
     function login(string $email, string $senha)
     {
         try {
-            $sql = "SELECT id, nome, email, telefone, data_nascimento FROM clientes WHERE ativo = true AND email = :email AND senha = MD5(:senha)";
+            $sql = "SELECT id, nome, email, telefone, data_nascimento, roles FROM clientes WHERE ativo = true AND email = :email AND senha = MD5(:senha)";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);

@@ -1,5 +1,5 @@
 export function header(element) {
-    document.getElementById("header-page").innerHTML =
+    let template =
         `  
     <div>
         <!-- Header - INICIO -->
@@ -17,15 +17,31 @@ export function header(element) {
                             servi&ccedil;os</a>
                         <a class="menu-item" href="./quem-somos.html">Quem somos</a>
                         <a class="menu-item" href="#main-galeria">Galeria</a>
-                        <a class="menu-item" href="#footer-primary">Contato</a>
-                        <a class="menu-item menu-item-button" href="./login.html">Entre</a>
-                    </nav>
+                        <a class="menu-item" href="#footer-primary">Contato</a>`;
+
+    if (sessionStorage.getItem("cliente")) {
+        let cliente = JSON.parse(sessionStorage.getItem("cliente"))
+        template +=
+            `       
+            <a class="menu-item menu-item-button" href="">${cliente.nome}</a>
+           <a class="menu-item menu-item-button" href="./logoff.html">Sair</a>
+            `
+    } else {
+        template +=
+            `       
+            <a class="menu-item menu-item-button" href="./login.html">Entre</a>
+            `
+    }
+
+    template +=
+        `               </nav>
+                    </div>
                 </div>
             </div>
-        </div>
         <!-- Header - FIM -->
     </div>
-    `
+    `;
+    document.getElementById("header-page").innerHTML = template;
 }
 
 export function secondaryHeader(element) {
@@ -149,4 +165,10 @@ export function footer() {
             <!-- Footer - FIM -->
         </div>
     `
+}
+
+export function sair() {
+    sessionStorage.removeItem("cliente");
+    sessionStorage.removeItem("token");
+    location.href = "./index.html";
 }

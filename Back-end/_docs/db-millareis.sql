@@ -12,18 +12,19 @@ CREATE TABLE clientes (
   data_nascimento DATE,
   observacao VARCHAR(255),
   ativo Boolean default 1,
-  validado Boolean default 0
+  validado Boolean default 0,
+  roles varchar(20) null
 );
+
 /*Teste para clientes
-  "nome": "teste",
-  "email": "teste@gmail.com",
-  "senha": 123456,
-  "telefone": 999999999,
-  "data_nascimento":2023-05-20,
-  "observacao": "nada"
-
-*/
-
+ "nome": "teste",
+ "email": "teste@gmail.com",
+ "senha": 123456,
+ "telefone": 999999999,
+ "data_nascimento":2023-05-20,
+ "observacao": "nada"
+ 
+ */
 /* Criação da tabela serviços */
 CREATE TABLE servicos (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -32,13 +33,12 @@ CREATE TABLE servicos (
   preco DECIMAL(10, 2),
   peso INT
 );
+
 /*
-  "nome": "teste",
-  "descricao": "teste",
-  "preco": 00.00
-*/
-
-
+ "nome": "teste",
+ "descricao": "teste",
+ "preco": 00.00
+ */
 /* Criação da tabela agendamentos */
 CREATE TABLE agendamentos (
   id INT PRIMARY KEY,
@@ -50,5 +50,12 @@ CREATE TABLE agendamentos (
   FOREIGN KEY (servico_id) REFERENCES servicos(id)
 );
 
-alter table servicos add ativo Boolean default 1;
-alter table agendamentos add ativo Boolean default 1;
+alter table
+  servicos
+add
+  ativo Boolean default 1;
+
+alter table
+  agendamentos
+add
+  ativo Boolean default 1;

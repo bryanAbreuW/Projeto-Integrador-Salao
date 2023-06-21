@@ -2,13 +2,16 @@
 
 class Cliente
 {
-    public $id;
-    public $nome;
-    public $email;
-    public $telefone;
-    public $senha;
-    public $data_nascimento;
-    public $observacao;
+    public int $id;
+    public string $nome;
+    public string $email;
+    public string $telefone;
+    public string $senha;
+    public string $data_nascimento;
+    public string $observacao;
+    public bool $ativo;
+    public bool $validado;
+    public string $roles;
 
     function valid()
     {
@@ -23,7 +26,7 @@ class Cliente
         }
     }
 
-    function mount(Object $dados)
+    function mount(Object $dados) //POJO
     {
         $this->id = $dados->id;
         $this->nome = $dados->nome;
@@ -32,6 +35,8 @@ class Cliente
         $this->senha = $dados->senha;
         $this->data_nascimento = $dados->data_nascimento;
         $this->observacao = $dados->observacao;
-
+        // $this->ativo =  $dados->ativo;
+        // $this->validado =  $dados->validado;
+        // $this->roles =  $dados->roles;
     }
 }
