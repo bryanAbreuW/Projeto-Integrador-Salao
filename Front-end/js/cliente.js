@@ -1,6 +1,11 @@
 const elements = {
     inputUsuario: document.getElementById("usuario-input"),
-    inputSenha: document.getElementById("senha-input")
+    inputSenha: document.getElementById("senha"),
+    inputNome: document.getElementById("nome"),
+    inputEmail: document.getElementById("email"),
+    inputTelefone: document.getElementById("tel"),
+    inputData_nascismento: document.getElementById("data_nascismento"),
+    inputObservacao: document.getElementById("observacao")
 }
 
 function getToken() {
@@ -43,6 +48,35 @@ async function entrar() {
             alert("Erro: \n" + err);
         });
 }
+
+async function enviarDados(){
+    let body = {
+        nome: elements.inputNome,
+        email: elements.inputEmail,
+        senha: elements.inputSenha,
+        telefone: elements.inputTelefone,
+        data_nascimento: elements.inputData_nascismento,
+        observacao: elements.inputObservacao,
+    };
+    let parameter = {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Authorization': getToken(),
+            'Content-Type': 'application/json',
+        },
+    };
+    await fetch(process.env.URL_API + "cliente", parameter)
+    .then(res => res.text())
+    .then(txt => {
+        let result = JSON.parse(txt);
+        return result.message;
+    })
+    .catch(err => {
+        throw new Error(err);
+    })
+}
+
 
 function sair() {
     sessionStorage.removeItem("cliente");

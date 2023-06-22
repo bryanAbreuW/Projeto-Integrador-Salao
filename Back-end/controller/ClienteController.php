@@ -16,8 +16,6 @@ class ClienteController
 
             $cliente = new Cliente();
 
-
-
             $cliente->mount($dadosRequest);
 
             //Valida o cliente no sistema
