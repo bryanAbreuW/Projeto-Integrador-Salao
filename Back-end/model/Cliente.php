@@ -26,15 +26,15 @@ class Cliente
         }
     }
 
-    function mount(Object $dados) //POJO
+    function mount($dados) //POJO
     {
-        $this->id = $dados->id;
-        $this->nome = $dados->nome;
-        $this->email = $dados->email;
-        $this->telefone = $dados->telefone;
-        $this->senha = $dados->senha;
-        $this->data_nascimento = $dados->data_nascimento;
-        $this->observacao = $dados->observacao;
+        $this->id = isset($dados, $dados->id) ? $dados->id : 0;
+        $this->nome = isset($dados, $dados->nome) ? $dados->nome : null;
+        $this->email = isset($dados, $dados->email) ? $dados->email : null;
+        $this->telefone = isset($dados, $dados->telefone) ? $dados->telefone : null;
+        $this->senha = isset($dados, $dados->senha) ? $dados->senha : null;
+        $this->data_nascimento = isset($dados, $dados->data_nascimento) ? $dados->data_nascimento : null;
+        $this->observacao = isset($dados, $dados->observacao) ? $dados->observacao : null;
         // $this->ativo =  $dados->ativo;
         // $this->validado =  $dados->validado;
         // $this->roles =  $dados->roles;

@@ -4,7 +4,7 @@ const elements = {
     inputNome: document.getElementById("nome"),
     inputEmail: document.getElementById("email"),
     inputTelefone: document.getElementById("tel"),
-    inputData_nascismento: document.getElementById("data_nascismento"),
+    inputData_nascimento: document.getElementById("data_nascimento"),
     inputObservacao: document.getElementById("observacao")
 }
 
@@ -43,20 +43,20 @@ async function entrar() {
             location.href = "./index.html";
         })
         .catch(err => {
-            console.log(err);
-            //throw err;
+            console.error(err);
             alert("Erro: \n" + err);
         });
 }
 
-async function enviarDados(){
+async function enviarDados() {
     let body = {
-        nome: elements.inputNome,
-        email: elements.inputEmail,
-        senha: elements.inputSenha,
-        telefone: elements.inputTelefone,
-        data_nascimento: elements.inputData_nascismento,
-        observacao: elements.inputObservacao,
+        id: null,
+        nome: elements.inputNome.value,
+        email: elements.inputEmail.value,
+        senha: elements.inputSenha.value,
+        telefone: elements.inputTelefone.value,
+        data_nascimento: elements.inputData_nascimento.value,
+        observacao: elements.inputObservacao.value,
     };
     let parameter = {
         method: 'POST',
@@ -67,14 +67,21 @@ async function enviarDados(){
         },
     };
     await fetch(process.env.URL_API + "cliente", parameter)
-    .then(res => res.text())
-    .then(txt => {
-        let result = JSON.parse(txt);
-        return result.message;
-    })
-    .catch(err => {
-        throw new Error(err);
-    })
+        .then(res => res.text())
+        .then(txt => {
+            let result = JSON.parse(txt);
+            if (result.error) {
+                alert(result.error);
+            } else if (result.message) {
+                alert(result.message);
+            } else {
+                alert("Não foi possível cadastrar.");
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Não foi acessar o servidor.");
+        })
 }
 
 

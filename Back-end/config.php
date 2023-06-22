@@ -12,3 +12,15 @@ if (session_status() === PHP_SESSION_NONE) {
 
 $_ENV = parse_ini_file('.env');
 
+// Resposta padrão---------------------
+function responseDefault($code = 200, $erro = null, $message = "", $data = [])
+{
+    http_response_code($code);
+    echo json_encode(
+        array(
+            "error" => $erro,
+            "message" => $message,
+            "data" => $data,
+        )
+    );
+}

@@ -6,7 +6,7 @@ USE millareis_db;
 CREATE TABLE clientes (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,
-  email VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
   senha VARCHAR(100) NOT NULL,
   telefone VARCHAR(50),
   data_nascimento DATE,
@@ -59,3 +59,8 @@ alter table
   agendamentos
 add
   ativo Boolean default 1;
+
+ALTER TABLE
+  `clientes`
+ADD
+  UNIQUE(`email`);

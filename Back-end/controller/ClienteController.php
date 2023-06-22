@@ -26,14 +26,17 @@ class ClienteController
 
             if ($cliente->id != null && $cliente->id != "" && $cliente->id != 0) {
                 $clienteService->update($cliente);
-                echo json_encode(array("message" => "Atualizado!"));
+                // echo json_encode(array("message" => "Atualizado!"));
+                responseDefault(message: "Atualizado");
             } else {
                 $clienteService->add($cliente);
-                echo json_encode(array("message" => "Cadastrado!"));
+                //echo json_encode(array("message" => "Cadastrado!"));
+                responseDefault(message: "Cadastrado");
             }
         } catch (Exception $e) {
-            http_response_code(500);
-            echo json_encode(array("error" => $e->getMessage()));
+            // http_response_code(500);
+            // echo json_encode(array("error" => $e->getMessage()));
+            responseDefault(code: 500, erro: $e->getMessage());
         }
     }
 
