@@ -118,8 +118,7 @@ class ClienteController
             $_SESSION[$token] = $result[0];
             echo json_encode(array("message" => "resultado ao entrar", "dados" => $result, "token" => $token));
         } catch (Exception $e) {
-            http_response_code(500);
-            echo json_encode(array("error" => $e->getMessage()));
+            responseDefault(code: 500, erro: $e->getMessage());
         }
     }
 }
