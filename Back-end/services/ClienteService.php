@@ -90,7 +90,7 @@ class ClienteService
     function login(string $email, string $senha)
     {
         try {
-            $sql = "SELECT id, nome, email, telefone, data_nascimento FROM clientes WHERE ativo = true AND email = :email AND senha = MD5(:senha)";
+            $sql = "SELECT id, nome, email, telefone, data_nascimento, roles FROM clientes WHERE ativo = true AND email = :email AND senha = MD5(:senha)";
             $dao = new DAO;
             $conn = $dao->connect();
             $stman = $conn->prepare($sql);

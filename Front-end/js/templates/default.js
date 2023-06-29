@@ -21,11 +21,22 @@ export function header(element) {
 
     if (sessionStorage.getItem("cliente")) {
         let cliente = JSON.parse(sessionStorage.getItem("cliente"))
-        template +=
+        if(cliente.roles == 1) {
+            template +=
             `       
-            <a class="menu-item menu-item-button" href="">${cliente.nome}</a>
-           <a class="menu-item menu-item-button" href="./logoff.html">Sair</a>
+                <a class="menu-item menu-item-button" href="">${cliente.nome}</a>
+                <a class="menu-item menu-item-button" href="./logoff.html">Sair</a>
             `
+        } else if (cliente.roles == 0) {
+            template += 
+            ` 
+                <a class="menu-item" href="">Clientes</a>
+                <a class="menu-item" href="">${cliente.nome}</a>
+                <a class="menu-item menu-item-button" href="./logoff.html">Sair</a>
+                
+            `
+        }
+
     } else {
         template +=
             `       
@@ -172,3 +183,4 @@ export function sair() {
     sessionStorage.removeItem("token");
     location.href = "./index.html";
 }
+

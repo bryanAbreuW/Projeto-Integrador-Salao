@@ -37,6 +37,6 @@ class Cliente
         $this->observacao = isset($dados, $dados->observacao) ? $dados->observacao : null;
         // $this->ativo =  $dados->ativo;
         // $this->validado =  $dados->validado;
-        // $this->roles =  $dados->roles;
+        //$this->roles =  $dados->roles;
     }
 }

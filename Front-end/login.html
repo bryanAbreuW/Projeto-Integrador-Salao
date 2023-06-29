@@ -15,8 +15,8 @@
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
 
     <!-- LOCAL - Folhas de Estilo -->
-    <link rel="stylesheet" href="./css/root.css">
     <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/root.css">
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
@@ -27,159 +27,42 @@
 
     <!-- <script src="./js/controller/clienteController.js" defer></script>
     <script src="./js/services/clienteService.js" defer></script> -->
+    <script>
+        function abrirClienteCadastro() {
+          window.open("./cliente-cadastro.html", "_self");
+        }
+    </script>
     <script src="./js/env.js" defer></script>
     <script src="./js/cliente.js" defer></script>
+    <script src="js/main.js" type="module" defer></script>
 </head>
 
 
 <body>
-    <header id="header">
-        <!-- Header - INICIO -->
-        <div id="header-primary">
-            <div class="d-flex justify-content-between">
-                <div id="header-logo" class="align-self-center">
-                    <img src="./img/logo_milla_reis_studio-539x441.jpg" alt="Logotipo do site Milla Reis Studio">
-                </div>
-                <div class="align-self-center">
-                    <nav class="menu">
-                        <a class="menu-item" aria-current="page" href="#main-nossos-servicos">Nossos servi&ccedil;os</a>
-                        <a class="menu-item" href="./quem-somos.html">Quem somos</a>
-                        <a class="menu-item" href="#main-galeria">Galeria</a>
-                        <a class="menu-item" href="#footer-primary">Contato</a>
-                        <a class="menu-item menu-item-button" href="./login.html">Entre</a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <!-- Header - FIM -->
-    </header>
+    <header id="header-page"> </header>
 
     <main class="page-login">
         <div class="page-login-content">
-            <h1>Entre</h1>
-            <div>
-                <div>
-                    <label>Usuário:</label>
-                    <input id="usuario-input" type="email">
-                </div>
-                <div>
-                    <label>Senha:</label>
-                    <input id="senha" type="password">
-                </div>
+            <h2>Entre</h2>
+
+            <div class="mb-3">
+                <label for="usuario-input" class="form-label">Email</label>
+                <input type="email" class="form-control" id="usuario-input" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="senha" class="form-label">Password</label>
+                <input type="password" class="form-control" id="senha">
+              </div>            
+            
+            <div class="d-flex justify-content-between" id="footer-enter">
+                <button type="button" class="btn btn-outline-secondary" onclick="abrirClienteCadastro()">Faça seu cadastro</button>
+                <button type="button" class="btn btn-outline-secondary" id="bnt-entrar" onclick="entrar()">Entrar</button>
             </div>
-            <div class="esqueceu-senha">
-                <a href="./recuperar-senha.html">
-                    Esqueceu a Senha?
-                </a>
-            </div>
-            <div>
-                <button type="button" onclick="entrar()">Entrar</button>
-            </div>
-            <div>
-                <a href="./cliente-cadastro.html" class="standard-button">
-                    Faça seu cadastro
-                </a>
-            </div>
+            
         </div>
     </main>
 
-    <footer id="footer">
-        <!-- Footer - INICIO -->
-        <div id="footer-primary">
-            <!-- Footer - Linha 1 - INICIO -->
-            <div class="d-flex flex-row">
-                <div class="footer-primary-item">
-                    <div>
-                        <a href="#header-primary">
-                            <h2 class="fw-semibold">Milla Reis Studio</h2>
-                        </a>
-                    </div>
-                    <div>
-                        <p class="text-break">High-grade professional beauty and care services tailored to your needs
-                            and desires. Let our experts enhance your look and individuality!</p>
-                    </div>
-                </div>
-                <div class="footer-primary-item">
-                    <div>
-                        <h2>Horários</h2>
-                    </div>
-                    <div>
-                        <div class="d-flex flex-row">
-                            <div>
-                                <p>Terça: &nbsp;</p>
-                            </div>
-                            <div>
-                                <p class="fw-bold">09h às 19h</p>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div>
-                                <p>Quarta: &nbsp;</p>
-                            </div>
-                            <div>
-                                <p class="fw-bold">09h às 19h</p>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div>
-                                <p>Quinta: &nbsp;</p>
-                            </div>
-                            <div>
-                                <p class="fw-bold">09h às 19h</p>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div>
-                                <p>Sexta: &nbsp;</p>
-                            </div>
-                            <div>
-                                <p class="fw-bold">09h às 19h</p>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div>
-                                <p>Sábado: &nbsp;</p>
-                            </div>
-                            <div>
-                                <p class="fw-bold">10h às 16h</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-primary-item">
-                    <div>
-                        <h2>Contato</h2>
-                    </div>
-                    <div>
-                        <p>+55 (99) 99999-9999</p>
-                    </div>
-                    <div>
-                        <p>mysite@email.com</p>
-                    </div>
-                </div>
-                <div class="footer-primary-item">
-                    <div>
-                        <h2>Venha nos visitar</h2>
-                    </div>
-                    <div>
-                        <p class="text-break">45 Rockefeller Plaza, New York, NY 10111, USA</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer - Linha 1 - FIM -->
-            <!-- Footer - Linha 2 - INICIO -->
-            <div class="d-flex justify-content-between p-2 mt-4">
-                <div>
-                    <p>&copy; Desenvolvido por Turma 2022.4-Programador Web SENAC RJ</p>
-                </div>
-                <div>
-                    <p>Todos os direitos reservados</p>
-                </div>
-            </div>
-            <!-- Footer - Linha 2 - FIM -->
-        </div>
-        <!-- Footer - FIM -->
-    </footer>
+    <footer id="footer-page"></footer>
 
 </body>
 

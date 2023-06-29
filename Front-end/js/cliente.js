@@ -37,6 +37,7 @@ async function entrar() {
                 id: result.dados[0].id,
                 nome: result.dados[0].nome,
                 email: result.dados[0].email,
+                roles: result.dados[0].roles,
             }
             sessionStorage.setItem("cliente", JSON.stringify(cliente));
             sessionStorage.setItem("token", result.token);
