@@ -16,20 +16,22 @@ export function header(element) {
                         <a class="menu-item" aria-current="page" href="#main-nossos-servicos">Nossos
                             servi&ccedil;os</a>
                         <a class="menu-item" href="./quem-somos.html">Quem somos</a>
-                        <a class="menu-item" href="#main-galeria">Galeria</a>
+                        <a class="menu-item" href="#section-05">Galeria</a>
                         <a class="menu-item" href="#footer-primary">Contato</a>`;
 
     if (sessionStorage.getItem("cliente")) {
         let cliente = JSON.parse(sessionStorage.getItem("cliente"))
         if(cliente.roles == 1) {
             template +=
-            `       
+            `   
+                <a class="menu-item" href="./cadastro-servico.html">Serviços</a>    
                 <a class="menu-item menu-item-button" href="">${cliente.nome}</a>
                 <a class="menu-item menu-item-button" href="./logoff.html">Sair</a>
             `
         } else if (cliente.roles == 0) {
             template += 
             ` 
+                <a class="menu-item" href="./cadastro-servico.html">Serviços</a>
                 <a class="menu-item" href="">Clientes</a>
                 <a class="menu-item" href="">${cliente.nome}</a>
                 <a class="menu-item menu-item-button" href="./logoff.html">Sair</a>
