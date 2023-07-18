@@ -1,5 +1,92 @@
-export function header(element) {
-    let template =
+export function header() {
+    if (!sessionStorage.getItem("cliente")) {
+        let template =
+            `
+            <div id="header-primary">
+                <div class="d-flex justify-content-between">
+                    <div id="header-logo" class="align-self-center">
+                        <a href="./index.html">    
+                            <img src="./img/logo_milla_reis_studio-539x441.png"
+                                alt="Logotipo do site Milla Reis Studio">
+                        </a>
+                    </div>
+                    <div class="align-self-center">
+                        <nav class="menu">
+                            <a class="menu-item" aria-current="page" href="#main-nossos-servicos">Nossos
+                                servi&ccedil;os</a>
+                            <a class="menu-item" href="./quem-somos.html">Quem somos</a>
+                            <a class="menu-item" href="#section-05">Galeria</a>
+                            <a class="menu-item" href="#footer-primary">Contato</a>
+                            <a class="menu-item menu-item-button" href="./login.html">Entre</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            `;
+        document.getElementById("header-page").innerHTML = template;
+        return;
+    }
+
+    let cliente = JSON.parse(sessionStorage.getItem("cliente"));
+    let template = `
+        <div class="navbar" id="header-primary">
+            <div class="d-flex justify-content-between">
+                <div id="header-logo" class="align-self-center">
+                    <a href="./index.html">    
+                        <img src="./img/logo_milla_reis_studio-539x441.png"
+                            alt="Logotipo do site Milla Reis Studio">
+                    </a>
+                </div>
+                <div class="align-self-center">
+                    <nav class="menu">
+                        <a class="menu-item" aria-current="page" href="#main-nossos-servicos">Nossos
+                            servi&ccedil;os</a>
+                        <a class="menu-item" href="./quem-somos.html">Quem somos</a>
+                        <a class="menu-item" href="#section-05">Galeria</a>
+                        <a class="menu-item" href="#footer-primary">Contato</a>`;
+
+    if (cliente.roles == 1) {
+        template +=
+            `   
+                <a class="menu-item" href="#">Serviços</a>    
+                <a class="menu-item menu-item-button" href="">${cliente.nome}</a>
+                <a class="menu-item menu-item-button" href="./logoff.html">Sair</a>
+            `;
+    } else if (cliente.roles == 0) {
+        template +=
+            ` 
+                <a class="menu-item" href="./cadastro-servico.html">Serviços</a>                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        ${cliente.nome}
+                    </a>
+                    <ul class="dropdown-menu">            
+                        <li><a class="menu-item dropdown-item" href="#">Clientes</a></li>
+                        <li><a class="menu-item menu-item-button" href="./logoff.html">Sair</a></li>
+                    </ul>
+                </li>
+            `;
+    }
+
+    template +=
+        `               </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Header - FIM -->
+    </div>
+    `;
+
+    document.getElementById("header-page").innerHTML = template;
+}
+
+header();
+
+
+
+/*  
+function header() {
+       let template =
         `  
     <div>
         <!-- Header - INICIO -->
@@ -55,27 +142,9 @@ export function header(element) {
     </div>
     `;
     document.getElementById("header-page").innerHTML = template;
-}
+ } */
 
-export function secondaryHeader(element) {
-    document.getElementById("secondary-header-page").innerHTML =
-        `  
-    <div>
-        <!-- Header - INICIO -->
-        <div id="header-secondary">
-            <div class="d-flex justify-content-between">
-                <div id="header-logo" class="align-self-center">
-                <a href="./index.html">    
-                    <img src="./img/logo_milla_reis_studio-539x441.png"
-                        alt="Logotipo do site Milla Reis Studio">
-                </a>
-                </div>
-            </div>
-        </div>
-        <!-- Header - FIM -->
-    </div>
-    `
-}
+
 
 export function footer() {
     document.getElementById("footer-page").innerHTML =

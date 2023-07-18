@@ -4,7 +4,7 @@ include_once("router.php");
 
 try {
     router("post", "servico", function () {
-        roles(['admin', 'gerente']);
+        roles(0);
         $servicoController = new ServicoController;
         $servicoController->postServico();
     });
@@ -13,12 +13,12 @@ try {
         $servicoController->getServico();
     });
     router("put", "servico", function () {
-        roles(['admin']);
+        roles(0);
         $servicoController = new ServicoController;
         $servicoController->putServico();
     });
     router("delete", "servico", function () {
-        roles(['admin']);
+        roles(0);
         $servicoController = new ServicoController();
         $servicoController->deleteServico();
     });

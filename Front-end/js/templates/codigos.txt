@@ -1,0 +1,76 @@
+    if (sessionStorage.getItem("cliente")) {
+        let cliente = JSON.parse(sessionStorage.getItem("cliente"))
+        if(cliente.roles == 1) {
+          template = `
+            <div id="header-primary">
+            <div class="d-flex justify-content-between">
+                <div id="header-logo" class="align-self-center">
+                <a href="./index.html">    
+                    <img src="./img/logo_milla_reis_studio-539x441.png"
+                        alt="Logotipo do site Milla Reis Studio">
+                </a>
+            </div>
+                <div class="align-self-center">
+                    <nav class="menu">
+                        <a class="menu-item" aria-current="page" href="#main-nossos-servicos">Nossos serviços</a>
+                        <a class="menu-item" href="./quem-somos.html">Quem somos</a>
+                        <a class="menu-item" href="#section-05">Galeria</a>
+                        <a class="menu-item" href="#footer-primary">Contato</a>  
+                        <a class="menu-item" href="./cadastro-servico.html">Serviços</a>    
+                        <a class="menu-item menu-item-button" href="">${cliente.nome}</a>
+                        <a class="menu-item menu-item-button" href="./logoff.html">Sair</a>  
+                    </nav>
+                </div>
+            </div>                      
+            `
+        } else if (cliente.roles == 0) {
+           template = `
+            <div id="header-primary">
+                <div class="d-flex justify-content-between">
+                    <div id="header-logo" class="align-self-center">
+                        <a href="./index.html">    
+                            <img src="./img/logo_milla_reis_studio-539x441.png" alt="Logotipo do site Milla Reis Studio">
+                        </a>
+                    </div>
+
+                    <div class="align-self-center">
+                        <nav class="menu">
+                            <a class="menu-item" aria-current="page" href="#main-nossos-servicos">Nossos serviços</a>
+                            <a class="menu-item" href="./quem-somos.html">Quem somos</a>
+                            <a class="menu-item" href="#section-05">Galeria</a>
+                            <a class="menu-item" href="#footer-primary">Contato</a>  
+                            <a class="menu-item" href="#">Serviços</a>    
+                            <a class="menu-item menu-item-button" href="">${cliente.nome}</a>
+                            <a class="menu-item menu-item-button" href="./logoff.html">Sair</a>  
+                        </nav>
+                    </div>
+                </div>
+            </div>                      
+            `
+        } else {
+           template = `
+            <div id="header-primary">
+                <div class="d-flex justify-content-between">
+                    <div id="header-logo" class="align-self-center">
+                    <a href="./index.html">    
+                        <img src="./img/logo_milla_reis_studio-539x441.png"
+                        alt="Logotipo do site Milla Reis Studio">
+                     </a>
+                </div>
+                <div class="align-self-center">
+                    <nav class="menu">
+                        <a class="menu-item" aria-current="page" href="#main-nossos-servicos">Nossos
+                            servi&ccedil;os</a>
+                        <a class="menu-item" href="./quem-somos.html">Quem somos</a>
+                        <a class="menu-item" href="#section-05">Galeria</a>
+                        <a class="menu-item" href="#footer-primary">Contato</a>
+                        <a class="menu-item menu-item-button" href="./login.html">Entre</a>
+                    </nav>
+                </div>
+            </div>
+
+            `
+        }
+
+        document.getElementById("header-page").innerHTML = template;
+    }
